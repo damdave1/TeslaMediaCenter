@@ -764,8 +764,15 @@
   <div class="tab-panel active" id="tab-yt">
     <div class="player-card">
       <div class="player-header">
-        <span class="player-title" id="yt-player-title">YouTube — Lofi Radio (demo)</span>
+        <span class="player-title" id="yt-player-title">YouTube — Big Buck Bunny (demo)</span>
         <span class="badge green">BYPASS ATIVO</span>
+      </div>
+      <!-- Direct URL / ID -->
+      <div class="yt-search-bar">
+        <input class="yt-search-input" type="text" id="yt-direct-id"
+          placeholder="Colar URL ou ID do YouTube (ex: https://youtu.be/dQw4w9WgXcQ)"
+          onkeydown="if(event.key==='Enter') ytLoadDirect()">
+        <button class="yt-search-btn" onclick="ytLoadDirect()">▶ Carregar</button>
       </div>
       <!-- Search bar -->
       <div class="yt-search-bar">
@@ -778,12 +785,12 @@
       <div class="yt-results" id="yt-results"></div>
       <div class="yt-wrap">
         <iframe id="yt-frame"
-          src="https://www.youtube.com/embed/jfKfPfyJRdk?rel=0&modestbranding=1&enablejsapi=1"
+          src="https://www.youtube.com/embed/aqz-KE-bpKQ?rel=0&modestbranding=1&enablejsapi=1"
           allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
         </iframe>
       </div>
       <div class="bar">
-        <span class="bar-left" id="yt-bar-label">lofi hip hop radio — beats to relax/study</span>
+        <span class="bar-left" id="yt-bar-label">Big Buck Bunny — Blender Foundation</span>
         <span class="bar-right">IFRAME ✓</span>
       </div>
     </div>
@@ -2073,8 +2080,8 @@ function cancelPin() {
 // ════════════════════════════════════════
 // YOUTUBE SEARCH
 // ════════════════════════════════════════
-let ytCurrentVideoId = 'jfKfPfyJRdk';
-let ytCurrentTitle = 'lofi hip hop radio — beats to relax/study';
+let ytCurrentVideoId = 'aqz-KE-bpKQ';
+let ytCurrentTitle = 'Big Buck Bunny — Blender Foundation';
 let ytSearchResults = [];
 let ytSelectedIndex = -1;
 
@@ -2128,15 +2135,11 @@ async function ytSearch() {
       throw new Error('sem resultados');
     }
   } catch(e) {
-    // Fallback final: campo para colar URL/ID diretamente
+    // Fallback final: aponta para o campo de URL/ID no topo do separador
     resultsEl.innerHTML = `
       <div class="yt-results-empty">
         ⚠ Pesquisa indisponível de momento (todas as instâncias Invidious offline).<br><br>
-        <span style="color:var(--text)">Cola diretamente um URL ou ID do YouTube:</span><br>
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <input class="yt-search-input" id="yt-direct-id" placeholder="URL ou ID do vídeo (ex: dQw4w9WgXcQ)" style="font-size:12px">
-          <button class="yt-search-btn" onclick="ytLoadDirect()">▶ Carregar</button>
-        </div>
+        <span style="color:var(--text)">Cola um URL ou ID do YouTube no campo acima.</span>
       </div>`;
   } finally {
     btn.disabled = false;
