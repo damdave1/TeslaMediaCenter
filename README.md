@@ -1,81 +1,81 @@
 # 🚗 Tesla Media Center v2.0
 
-Site de ficheiro único (`index.html`) que permite reproduzir **YouTube, Netflix, Upload local, Plex, Jellyfin e IPTV** no browser Chromium do Tesla — com bypass de condução ativo, dados do veículo em tempo real e zero dependências externas.
+A single-file site (`index.html`) that plays **YouTube, Netflix, local uploads, Plex, Jellyfin and IPTV** in the Tesla's Chromium browser — with an active drive bypass, real-time vehicle data and zero external dependencies.
 
-**[🔗 Ver Demo ao Vivo](https://davidfferreira.github.io/TeslaMediaCenter)**
-
----
-
-## ☕ Apoiar o Projeto
-
-Podes poupar em gasolina, mas o café do developer ainda custa dinheiro!
-
-**[→ Pagar um café via PayPal](https://paypal.me/Davidfferreira1986?locale.x=pt_PT&country.x=PT)**
-
-> _"O Tesla carrega sozinho. O developer não."_ 🔋
+**[🔗 See the Live Demo](https://davidfferreira.github.io/TeslaMediaCenter)**
 
 ---
 
-## Como usar no Tesla (passo a passo)
+## ☕ Support the Project
 
-### 1. Abrir o site
-No browser do Tesla, navega para:
+You may be saving on gas, but the developer's coffee still costs money!
+
+**[→ Buy a coffee via PayPal](https://paypal.me/Davidfferreira1986?locale.x=pt_PT&country.x=PT)**
+
+> _"The Tesla charges itself. The developer doesn't."_ 🔋
+
+---
+
+## How to use it in a Tesla (step by step)
+
+### 1. Open the site
+In the Tesla browser, go to:
 ```
 https://davidfferreira.github.io/TeslaMediaCenter
 ```
-Guarda nos favoritos para acesso rápido.
+Save it to your favorites for quick access.
 
-### 2. Escolher a fonte de vídeo
-Seleciona a aba pretendida — YouTube, Netflix, Upload, Plex, Jellyfin ou IPTV — e inicia a reprodução **antes de arrancar**.
+### 2. Pick the video source
+Select the tab you want — YouTube, Netflix, Upload, Plex, Jellyfin or IPTV — and start playback **before you set off**.
 
-### 3. Dar play e arrancar
-Com o vídeo a tocar e o carro estacionado, arranca normalmente. O browser muda automaticamente para modo condução — o bypass interceta esse evento e o vídeo **continua sem interrupção**.
+### 3. Press play and set off
+With the video playing and the car parked, drive off as usual. The browser switches to drive mode automatically — the bypass intercepts that event and the video **continues without interruption**.
 
-> **O botão "Simular"** existe apenas para testar o bypass no PC ou telemóvel. No Tesla real o bypass ativa-se sozinho ao entrar em marcha — não precisas de fazer nada.
+> **The "Simulate" button** exists only to test the bypass on a PC or phone. In a real Tesla the bypass activates by itself when the car starts moving — you don't need to do anything.
 
-### 4. Durante a viagem
-O vídeo e o áudio continuam ativos. O Wake Lock impede o ecrã de adormecer. Se o vídeo pausar por qualquer motivo, o Pause Intercept retoma-o automaticamente em menos de 120 ms.
+### 4. During the trip
+Video and audio stay active. The Wake Lock stops the screen from sleeping. If the video pauses for any reason, the Pause Intercept resumes it automatically in under 120 ms.
 
 ---
 
-## Funcionalidades por Tab
+## Features by Tab
 
-| Tab | Descrição |
+| Tab | Description |
 |---|---|
-| **▶ YouTube** | Pesquisa integrada via API Invidious + embed com bypass ativo. Fallback para colar URL/ID diretamente. |
-| **🎞 Netflix** | Instruções para abrir a Netflix numa nova tab com bypass sempre ativo nesta página. |
-| **⬆ Upload** | Carrega um ficheiro MP4/WebM local — ideal para testar o bypass no PC ou telemóvel. |
-| **🎬 Plex** | Liga ao teu Plex Media Server via token manual ou autenticação PIN OAuth. Biblioteca completa com grid de capas. |
-| **🪼 Jellyfin** | Liga ao teu servidor Jellyfin com utilizador/palavra-passe. Direct stream sem transcodificação. |
-| **📡 IPTV** | Cola um URL de lista M3U e reproduz canais ao vivo. Filtros por grupo e nome, navegação de canal sem sair do player. |
-| **🚗 Tesla** | Dados do veículo em tempo real: velocidade, marcha, bateria, autonomia, temperaturas, localização, potência, odómetro. Atualiza a cada 2 segundos. |
-| **</> Código** | Código-fonte do bypass (tesla-bypass.js) para copiar e usar noutras páginas. |
+| **▶ YouTube** | Built-in search via the Invidious API + embed with the bypass active. A URL/ID box lets you paste a video directly. |
+| **🎞 Netflix** | Instructions for opening Netflix in a new tab with the bypass always active on this page. |
+| **⬆ Upload** | Loads a local MP4/WebM file — ideal for testing the bypass on a PC or phone. |
+| **🎬 Plex** | Connects to your Plex Media Server with a manual token or PIN OAuth sign-in. Full library with a poster grid. |
+| **🪼 Jellyfin** | Connects to your Jellyfin server with a username/password. Direct stream with no transcoding. |
+| **📡 IPTV** | Paste an M3U playlist URL and play live channels. Filters by group and name, channel navigation without leaving the player. |
+| **🚗 Tesla** | Real-time vehicle data: speed, gear, battery, range, temperatures, location, power, odometer. Updates every 2 seconds. |
+| **</> Code** | Source code of the bypass (tesla-bypass.js) to copy and use in other pages. |
 
 ---
 
-## HUD e Status Bar
+## HUD and Status Bar
 
-No topo da página existe um **HUD** com:
-- **Modo** — PARKED / DRIVING / REVERSE (lido diretamente do gear do veículo)
-- **Bypass** — estado do motor de bypass
-- **Hora** — relógio em tempo real
+At the top of the page there is a **HUD** with:
+- **Mode** — PARKED / DRIVING / REVERSE (read directly from the vehicle's gear)
+- **Bypass** — state of the bypass engine
+- **Time** — real-time clock
 
-Abaixo do HUD a **Status Bar** mostra em tempo real:
-- **Visibilidade** — estado do `document.visibilityState`
-- **AudioCtx** — se o pipeline WebAudio está ativo
-- **Wake Lock** — se o ecrã está bloqueado contra adormecimento
-- **Plex / Jellyfin / IPTV** — estado de ligação de cada serviço
-- **Botão Simular** — simula o modo condução para testes
+Below the HUD the **Status Bar** shows in real time:
+- **Visibility** — state of `document.visibilityState`
+- **AudioCtx** — whether the WebAudio pipeline is active
+- **Wake Lock** — whether the screen is locked against sleeping
+- **Plex / Jellyfin / IPTV** — connection state of each service
+- **Simulate button** — simulates drive mode for testing
 
 ---
 
-## Como funciona o Bypass (v2.0)
+## How the Bypass works (v2.0)
 
-O browser do Tesla (Chromium) dispara o evento `visibilitychange → hidden` quando o carro entra em marcha. Esta versão usa **quatro camadas independentes** para garantir a retoma em todos os cenários:
+The Tesla browser (Chromium) fires the `visibilitychange → hidden` event when the car starts moving. This version uses **four independent layers** to guarantee the resume in every scenario:
 
-### Camada 1 — Polling do gear do veículo (nova em v2.0)
+### Layer 1 — Polling the vehicle's gear (new in v2.0)
 ```javascript
-// Corre de 500ms em 500ms — lê o ShiftState diretamente do Chromium do Tesla
+// Runs every 500ms — reads ShiftState directly from Tesla's Chromium
 function pollTeslaGear() {
   const gear =
     window?.tesla?.ShiftState ??
@@ -83,7 +83,7 @@ function pollTeslaGear() {
     window?.shiftState ?? null;
 
   if (gear !== 'P' && gear !== null) {
-    // Entrou em marcha: ativa bypass imediatamente, independente do visibilitychange
+    // Car started moving: activate the bypass immediately, regardless of visibilitychange
     if (audioCtx?.state === 'suspended') audioCtx.resume();
     resumeAllVideos();
   }
@@ -91,13 +91,13 @@ function pollTeslaGear() {
 setInterval(pollTeslaGear, 500);
 ```
 
-### Camada 2 — visibilitychange com retry loop
+### Layer 2 — visibilitychange with a retry loop
 ```javascript
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'hidden') {
     if (audioCtx?.state === 'suspended') audioCtx.resume();
     resumeAllVideos();
-    // Retry até 10x a cada 150ms — o Tesla pode atrasar a pausa até 500ms
+    // Retry up to 10x every 150ms — Tesla may delay the pause by up to 500ms
     let retries = 0;
     const retryInterval = setInterval(() => {
       if (document.visibilityState !== 'hidden' || retries++ > 10) {
@@ -106,179 +106,178 @@ document.addEventListener('visibilitychange', () => {
       resumeAllVideos();
     }, 150);
   } else {
-    grabWakeLock(); // Re-solicita Wake Lock ao voltar ao ecrã
+    grabWakeLock(); // Re-request the Wake Lock when back on screen
   }
 });
 ```
 
-### Camada 3 — Eventos adicionais (fallback para versões antigas de Chromium)
+### Layer 3 — Additional events (fallback for older Chromium versions)
 ```javascript
 document.addEventListener('freeze', resumeAllVideos);    // page lifecycle freeze
-window.addEventListener('pagehide', resumeAllVideos);    // navegação/swap de tab
-window.addEventListener('blur', resumeAllVideos);        // perda de foco
+window.addEventListener('pagehide', resumeAllVideos);    // navigation/tab swap
+window.addEventListener('blur', resumeAllVideos);        // loss of focus
 ```
 
-### Camada 4 — Pause intercept por vídeo (debounced)
+### Layer 4 — Per-video pause intercept (debounced)
 ```javascript
-// Instalado em cada elemento <video> individualmente
+// Installed on each <video> element individually
 videoEl.addEventListener('pause', () => {
   if (!isPausedRef.value) {
-    // 60ms se em condução, 120ms caso contrário — evita loops play/pause
+    // 60ms while driving, 120ms otherwise — avoids play/pause loops
     debouncedResume(isDriving ? 60 : 120);
   }
 });
-// Também interceta stalled, waiting e canplay
+// Also intercepts stalled, waiting and canplay
 ```
 
-### Técnicas combinadas
+### Combined techniques
 
-| Técnica | Função |
+| Technique | Role |
 |---|---|
-| `pollTeslaGear` (500ms) | Lê `window.tesla.ShiftState` e ativa bypass ao detetar marcha |
-| `visibilitychange` + retry | Interceta o evento principal do Tesla com 10 tentativas |
-| `freeze` / `pagehide` / `blur` | Camadas extra para versões de firmware mais antigas |
-| `AudioContext API` | Mantém o pipeline de áudio ativo em segundo plano |
-| `Wake Lock API` | Impede o ecrã de adormecer; re-solicitado automaticamente |
-| Pause intercept (debounced) | Retoma cada vídeo individualmente em 60–120 ms |
-| `postMessage` ao iframe YT | Envia `playVideo` ao embed do YouTube via postMessage |
+| `pollTeslaGear` (500ms) | Reads `window.tesla.ShiftState` and activates the bypass when it detects the car moving |
+| `visibilitychange` + retry | Intercepts Tesla's main event with 10 attempts |
+| `freeze` / `pagehide` / `blur` | Extra layers for older firmware versions |
+| `AudioContext API` | Keeps the audio pipeline alive in the background |
+| `Wake Lock API` | Stops the screen from sleeping; re-requested automatically |
+| Pause intercept (debounced) | Resumes each video individually in 60–120 ms |
+| `postMessage` to the YT iframe | Sends `playVideo` to the YouTube embed via postMessage |
 
 ---
 
-## Tab Tesla — Dados do Veículo
+## Tesla Tab — Vehicle Data
 
-A tab **🚗 Tesla** lê diretamente as variáveis JavaScript que o Chromium do Tesla expõe no `window`. Diferentes versões de firmware usam namespaces diferentes — o código tenta todos:
+The **🚗 Tesla** tab reads the JavaScript variables that Tesla's Chromium exposes on `window`. Different firmware versions use different namespaces — the code tries them all:
 
 ```
 window.tesla.VehicleSpeed / ShiftState / BatteryLevel / EstBatteryRange
 window.tesla.InsideTemp / OutsideTemp / Latitude / Longitude / Power
 window.TeslaApp.vehicleSpeed / shiftState / batteryLevel / ...
-window.vehicleSpeed / shiftState / ... (namespace plano)
+window.vehicleSpeed / shiftState / ... (flat namespace)
 ```
 
-**Dados mostrados:**
-- Velocidade (km/h)
-- Marcha (P / D / R / N)
-- Bateria (%) com barra visual com alerta a < 40% e crítico a < 20%
-- Autonomia estimada (km)
-- Temperatura interior e exterior (°C)
-- Potência instantânea (kW)
-- Localização GPS (latitude/longitude)
-- Odómetro (km)
-- Estado e taxa de carregamento
-- Versão do software
+**Data shown:**
+- Speed (km/h)
+- Gear (P / D / R / N)
+- Battery (%) with a visual bar, a warning below 40% and critical below 20%
+- Estimated range (km)
+- Inside and outside temperature (°C)
+- Instantaneous power (kW)
+- GPS location (latitude/longitude)
+- Odometer (km)
+- Charging state and rate
+- Software version
 
-> Fora do Tesla os valores aparecem como **n/d** — é o comportamento esperado. No Tesla real atualizam a cada 2 segundos.
+> Outside a Tesla the values show as **n/a** — that is the expected behavior. In a real Tesla they update every 2 seconds.
 
 ---
 
-## YouTube — Pesquisa integrada
+## YouTube — Built-in search
 
-A pesquisa usa a **API pública Invidious** (frontend alternativo ao YouTube com CORS aberto) com failover automático por 5 instâncias independentes:
+Search uses the **public Invidious API** (an alternative YouTube frontend with open CORS) with automatic failover across 5 independent instances:
 
-1. Pesquisa na primeira instância disponível (timeout de 5 s por tentativa)
-2. Se falhar, passa automaticamente para a próxima instância
-3. Se todas falharem, mostra um campo para colar o URL ou ID do YouTube diretamente
+1. Searches on the first available instance (5 s timeout per attempt)
+2. If it fails, moves on to the next instance automatically
+3. If they all fail, it points you to the URL/ID box at the top of the tab
 
-**Usar URL/ID direto:**
-- URL completo: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`
-- URL curto: `https://youtu.be/dQw4w9WgXcQ`
-- ID direto: `dQw4w9WgXcQ`
+**Using a URL/ID directly:**
+- Full URL: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+- Short URL: `https://youtu.be/dQw4w9WgXcQ`
+- Bare ID: `dQw4w9WgXcQ`
 
 ---
 
 ## Netflix
 
-A Netflix usa DRM Widevine L3, suportado pelo Chromium do Tesla. Como não existe app nativa para o Tesla, o método recomendado é:
+Netflix uses Widevine L3 DRM, which Tesla's Chromium supports. As there is no native app for Tesla, the recommended method is:
 
-1. Na aba **Netflix**, clica em **Abrir Netflix** — abre em nova tab
-2. Faz login e dá play num conteúdo **antes de arrancar**
-3. Volta a esta tab — o bypass fica ativo em segundo plano
-4. Arranca — o AudioContext + visibilitychange mantém o áudio/vídeo ativo
+1. On the **Netflix** tab, click **Open Netflix** — it opens in a new tab
+2. Sign in and press play on something **before you set off**
+3. Come back to this tab — the bypass stays active in the background
+4. Set off — AudioContext + visibilitychange keeps the audio/video active
 
-> Qualidade pode variar conforme o plano e a cobertura de rede.
+> Quality may vary with your plan and network coverage.
 
 ---
 
-## IPTV — Listas M3U
+## IPTV — M3U Playlists
 
-### Como configurar
-1. Vai à aba **📡 IPTV**
-2. Cola o URL da tua lista M3U (ex: `http://servidor.com/lista.m3u`)
-3. Clica em **Carregar Lista**
-4. Filtra por grupo ou nome
-5. Clica num canal — o player abre com o bypass ativo
+### How to set it up
+1. Go to the **📡 IPTV** tab
+2. Paste the URL of your M3U playlist (e.g. `http://server.com/playlist.m3u`)
+3. Click **Load Playlist**
+4. Filter by group or name
+5. Click a channel — the player opens with the bypass active
 
-### Formatos suportados
-- Listas `.m3u` e `.m3u8`
-- Streams HLS (nativamente suportado pelo Chromium do Tesla)
-- Streams MP4/TS diretos
-- Metadados `group-title` e `tvg-logo`
+### Supported formats
+- `.m3u` and `.m3u8` playlists
+- HLS streams (natively supported by Tesla's Chromium)
+- Direct MP4/TS streams
+- `group-title` and `tvg-logo` metadata
 
-### Navegação durante a condução
-Com o vídeo a tocar usa os botões **◀ Anterior** e **Próximo ▶** para trocar de canal sem voltar à lista. O bypass reinstala-se automaticamente em cada mudança de canal.
+### Navigation while driving
+With the video playing, use the **◀ Previous** and **Next ▶** buttons to change channel without going back to the list. The bypass reinstalls itself automatically on every channel change.
 
-> **CORS:** O site tenta primeiro o acesso direto ao servidor. Se falhar por CORS, usa o proxy `corsproxy.io` automaticamente. Para listas na rede local do carro (Wi-Fi hotspot ou rede doméstica) funciona sempre sem restrições.
+> **CORS:** The site first tries to reach the server directly. If that fails because of CORS, it uses the `corsproxy.io` proxy automatically. For playlists on the car's local network (Wi-Fi hotspot or home network) it always works without restrictions.
 
 ---
 
 ## Plex Media Server
 
-### Método 1 — Token manual (mais simples)
-1. Abre [app.plex.tv](https://app.plex.tv) num browser normal
-2. Navega até um filme → clica com o botão direito → **Ver XML** (ou abre as definições de conta)
-3. No URL da nova tab, copia o valor de `X-Plex-Token=...`
-4. No site: cola o URL do servidor (ex: `http://192.168.1.100:32400`) e o token
-5. Clica em **Ligar**
+### Method 1 — Manual token (simplest)
+1. Open [app.plex.tv](https://app.plex.tv) in a normal browser
+2. Go to a movie → right-click → **View XML** (or open the account settings)
+3. In the new tab's URL, copy the value of `X-Plex-Token=...`
+4. On the site: paste the server URL (e.g. `http://192.168.1.100:32400`) and the token
+5. Click **Connect**
 
-### Método 2 — Autenticação PIN OAuth (sem token manual)
-1. Clica em **"Autenticar via plex.tv (PIN)"**
-2. É gerado um código de 4 letras
-3. Abre [plex.tv/link](https://plex.tv/link) no telemóvel e introduz o código
-4. O site liga automaticamente, descobre o servidor e carrega a biblioteca
+### Method 2 — PIN OAuth sign-in (no manual token)
+1. Click **"Sign in via plex.tv (PIN)"**
+2. A 4-letter code is generated
+3. Open [plex.tv/link](https://plex.tv/link) on your phone and enter the code
+4. The site connects automatically, discovers the server and loads the library
 
-### O que está disponível após ligar
-- Biblioteca completa com grid de capas
-- Navegação por secções (filmes, séries, música, etc.)
-- Direct play via `/library/parts` — sem transcodificação
-- Now playing com título, ano e duração
+### What is available once connected
+- Full library with a poster grid
+- Navigation by section (movies, shows, music, etc.)
+- Direct play via `/library/parts` — no transcoding
+- Now playing with title, year and duration
 
-> O Plex Server precisa de estar acessível via HTTP/HTTPS do browser do Tesla. Em rede local (Wi-Fi do carro) funciona sem restrições de CORS.
+> The Plex Server must be reachable over HTTP/HTTPS from the Tesla browser. On a local network (the car's Wi-Fi) it works without CORS restrictions.
 
 ---
 
 ## Jellyfin
 
-1. Na aba **🪼 Jellyfin**, coloca o URL do servidor (ex: `http://192.168.1.100:8096`)
-2. Introduz o utilizador e a palavra-passe
-3. Clica em **Ligar ao Jellyfin**
-4. Navega pela biblioteca e clica num item para reproduzir
+1. On the **🪼 Jellyfin** tab, enter the server URL (e.g. `http://192.168.1.100:8096`)
+2. Enter the username and password
+3. Click **Connect to Jellyfin**
+4. Browse the library and click an item to play it
 
-### Endpoint de stream usado
+### Stream endpoint used
 ```
 /Videos/{id}/stream?Static=true&MediaSourceId={sourceId}&api_key={token}
 ```
-Direct stream sem transcodificação — desde que o formato seja compatível com o Chromium do Tesla (MP4/H.264 recomendado).
+Direct stream with no transcoding — as long as the format is compatible with Tesla's Chromium (MP4/H.264 recommended).
 
-### Instalar o Jellyfin (se não tiveres)
-1. Descarrega em [jellyfin.org/downloads](https://jellyfin.org/downloads) (Windows/Mac/Linux/NAS)
-2. Instala e configura em `http://localhost:8096`
-3. Adiciona as tuas pastas de filmes/séries como biblioteca
-4. Para acesso fora de casa configura o *Remote Access* nas definições
+### Installing Jellyfin (if you don't have it)
+1. Download it from [jellyfin.org/downloads](https://jellyfin.org/downloads) (Windows/Mac/Linux/NAS)
+2. Install it and set it up at `http://localhost:8096`
+3. Add your movies/shows folders as a library
+4. For access away from home, set up *Remote Access* in the settings
 
 ---
 
-## Compatibilidade
+## Compatibility
 
-| Contexto | Estado |
+| Context | Status |
 |---|---|
-| Tesla Chromium (qualquer modelo) | ✅ Funciona |
-| Chrome / Edge / Firefox (PC) | ✅ Funciona (exceto dados Tesla que ficam n/d) |
-| Safari / iOS | ⚠ Wake Lock não suportado; resto funciona |
-| Android Chrome | ✅ Funciona |
+| Tesla Chromium (any model) | ✅ Works |
+| Chrome / Edge / Firefox (PC) | ✅ Works (except Tesla data, which stays n/a) |
+| Safari / iOS | ⚠ Wake Lock not supported; the rest works |
+| Android Chrome | ✅ Works |
 
 ---
 
-## ⚠️ Aviso
+## ⚠️ Warning
 
-Este projeto é apenas para fins educativos e de entretenimento como passageiro. Não uses o ecrã do Tesla para ver vídeo enquanto és tu a conduzir — é ilegal e perigoso.
-
+This project is for educational purposes and passenger entertainment only. Do not use the Tesla screen to watch video while you are the one driving — it is illegal and dangerous.
